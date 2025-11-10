@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TradeTeamMate</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <button class="menu-btn">☰</button>
+      <div class="logo">
+        <div class="help-icon">?</div>
+        <div class="title">TradeTeamMate</div>
+      </div>
+      <img class="avatar" src="https://i.pravatar.cc/40" alt="profile" />
+    </header>
+
+    <main id="chat-area">
+      <div id="messages" class="messages"></div>
+    </main>
+
+    <div class="input-row">
+      <input id="chat-input" type="text" placeholder="Ask me your stock questions!" />
+      <button id="send-btn" class="send-btn" aria-label="send">►</button>
+    </div>
+
+    <nav class="bottombar">
+      <div class="nav-item">🏠</div>
+      <div class="nav-item">🔍</div>
+      <div class="nav-item">⟷</div>
+      <div class="nav-item">💳</div>
+    </nav>
+  </div>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
