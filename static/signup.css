@@ -1,0 +1,129 @@
+/* Reset creates a blank slate */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+
+.mobile-container {
+    width: 100%;
+    max-width: 430px; /* Width of a large iPhone */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+}
+
+.header-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 50px;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.subtext {
+    color: #666;
+    font-size: 14px;
+}
+
+/* Input Styling to look like iOS */
+input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid #E5E5E5;
+    border-radius: 8px;
+    background-color: #FAFAFA;
+    font-size: 16px;
+    margin-bottom: 20px;
+    outline: none;
+}
+
+/* Add focus style for password too */
+input[type="email"]:focus, input[type="password"]:focus {
+    border-color: #000;
+}
+/* The Black Button */
+.primary-btn {
+    width: 100%;
+    background-color: #000;
+    color: #fff;
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 30px 0;
+    color: #888;
+    font-size: 14px;
+}
+
+.divider hr {
+    flex-grow: 1;
+    border: none;
+    height: 1px;
+    background-color: #E5E5E5;
+}
+
+.divider span {
+    padding: 0 10px;
+}
+
+/* Social Buttons */
+.social-btn {
+    width: 100%;
+    background-color: #F0F0F0;
+    border: none;
+    padding: 16px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* New style for the image logos */
+.social-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 12px; /* Space between logo and text */
+    object-fit: contain;
+}
+
+.footer-text {
+    text-align: center;
+    margin-top: auto; /* Pushes footer to bottom if space allows */
+    padding-bottom: 20px;
+}
+
+.footer-text p {
+    font-size: 12px;
+    color: #888;
+    line-height: 1.5;
+}

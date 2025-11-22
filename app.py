@@ -1,7 +1,10 @@
 import os
 import re
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, redirect, url_for
 import requests
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
 
@@ -42,6 +45,19 @@ def extract_ticker_from_text(text: str):
             return w_upper
     return None
 
+@app.route("/signup")
+def signup():
+    firebase_config = {
+        "apiKey": os.getenv("FIREBASE_API_KEY"),
+        "authDomain": os.getenv("FIREBASE_AUTH_DOMAIN"),
+        "projectId": os.getenv("FIREBASE_PROJECT_ID"),
+        "storageBucket": os.getenv("FIREBASE_STORAGE_BUCKET"),
+        "messagingSenderId": os.getenv("FIREBASE_MESSAGING_SENDER_ID"),
+        "appId": os.getenv("FIREBASE_APP_ID")
+    }
+    
+    # 4. Send this dictionary to the HTML page
+    return render_template("signup.html", firebase_config=firebase_config)
 
 @app.route("/")
 def index():

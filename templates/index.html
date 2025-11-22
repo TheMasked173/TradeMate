@@ -2,9 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>TradeTeamMate</title>
   <link rel="stylesheet" href="/static/style.css" />
+  <style>
+    /* 1. Force the body to fit the phone screen */
+    body {
+        width: 100%;
+        overflow-x: hidden; /* Cuts off anything sticking out the side */
+        margin: 0;
+        padding: 0;
+    }
+
+    /* 2. Force all images and charts to shrink to fit */
+    img, canvas, table, .chart-container {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+
+    /* 3. Stack things that are side-by-side (like columns) */
+    .row, .container, .flex-box {
+        display: flex;
+        flex-direction: column; /* Stacks them vertically */
+        width: 100%;
+    }
+</style>
 </head>
 <body>
   <div class="app-shell">
