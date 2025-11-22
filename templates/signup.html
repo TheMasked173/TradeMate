@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='signup.css') }}">
+</head>
+<body>
+
+    <div class="mobile-container">
+        <div class="header-section">
+            <h1>TradeTeamMate</h1>
+            <h2>Create an account</h2>
+            <p class="subtext">Enter your email to sign up for this app</p>
+        </div>
+
+        <form id="signupForm" class="login-form">
+            
+            <input type="email" id="email" placeholder="email@domain.com" required>
+            
+            <input type="password" id="password" placeholder="Password" required style="margin-top: -10px;">
+            
+            <button type="button" id="btnSubmit" class="primary-btn">Continue</button>
+        </form>
+
+        <div class="divider">
+            <hr> <span>or</span> <hr>
+        </div>
+
+        <div class="social-login">
+            <button type="button" class="social-btn google">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" 
+                     alt="Google" class="social-icon">
+                Continue with Google
+            </button>
+            
+            <button type="button" class="social-btn apple">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" 
+                     alt="Apple" class="social-icon">
+                Continue with Apple
+            </button>
+        </div>
+
+        <div class="footer-text">
+            <p>By clicking continue, you agree to our <br> 
+            <strong>Terms of Service</strong> and <strong>Privacy Policy</strong></p>
+        </div>
+    </div>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+      import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+      const firebaseConfig = {{ firebase_config | tojson }};
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+
+      // --- THE FIX IS HERE ---
+      // We listen for the BUTTON CLICK, not the form submit
+      document.getElementById('btnSubmit').addEventListener('click', () => {
+        
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        console.log("Button clicked! Creating user...");
+
+        createUserWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+            console.log("Success:", userCredential.user);
+            window.location.href = "/"; 
+          })
+          .catch((error) => {
+            console.error(error);
+            alert("Error: " + error.message);
+          });
+      });
+    </script>
+
+</body>
+</html>
